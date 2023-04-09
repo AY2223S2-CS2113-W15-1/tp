@@ -29,6 +29,12 @@ public class Meal implements Comparable<Meal> {
         this.foods = foods;
     }
 
+    public void addFoods(ArrayList<Food> foods) {
+        for (Food food : foods) {
+            this.foods.add(food);
+        }
+    }
+
     public LocalDate getDate() {
         return this.date;
     }
@@ -52,7 +58,6 @@ public class Meal implements Comparable<Meal> {
     public void setIdentifier(MealTypes identifier) {
         this.identifier = identifier;
     }
-
 
     public void calculateTotalCalories() {
         for (Food food : foods) {

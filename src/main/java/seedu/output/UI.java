@@ -1,7 +1,7 @@
 package seedu.output;
 
-import seedu.database.FoodStorage;
 import seedu.entities.Food;
+import seedu.storage.FoodStorage;
 
 import java.util.Scanner;
 
@@ -84,8 +84,5 @@ public class UI {
                 System.out.println((i + 1) + ". " + taskDescription);
             }
         }
-    }
-
-    public void printDeletedFood(Food newFood) {
     }
 }

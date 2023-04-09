@@ -1,91 +1,263 @@
-# ***Life Tracker user guide***
+# ***LifeTracker user guide***
 
 ## Introduction
 
-**_Life Tracker_** is an application that allows users who are health conscious automate the tracking of their calories and keep a record of 
+**_LifeTracker_** is an application that allows users who are health conscious automate the tracking of their calories and keep a record of 
 their calorie intake history.
 
 The app also allows users to keep track of their daily exercises to compute their calorie loss.
 
+Their net calorie gain/loss can then be viewed.
+- [Quick Start](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#quick-start)
+- [Features](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#features)
+  - [Viewing User Profile](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#viewing-user-profile-view)
+  - [Updating User Profile](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#updating-user-profile-update)
+  - [Adding a meal](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#adding-a-meal-add)
+  - [Listing foods](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#listing-foods-list)
+  - [Listing meals](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#listing-meals-list)
+  - [Listing exercises](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#listing-exercises-list)
+  - [Deleting meals](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#deleting-meals-delete)
+  - [Filtering foods](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#filtering-foods-filter)
+  - [Viewing nutrition content of foods](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#view-nutrition-content-of-food-nutrition)
+  - [Adding an exercise](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#adding-an-exercise-exercise)
+  - [Tracking net calorie intake](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#tracking-net-calorie-intake-track)
+  - [Displaying examples of meals and exercises](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#displaying-examples-of-meals-and-exercises-examples)
+ - [Exiting the application](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#exiting-the-application-bye)
+- [FAQ](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#faq)
+- [Command Summary](https://ay2223s2-cs2113-w15-1.github.io/tp/UserGuide.html#command-summary)
 
 ## Quick Start
 
-{Give steps to get started quickly}
-
 1. Ensure that you have Java 11 or above installed.
-1. Down the latest version of `Duke` from [here](http://link.to/duke).
+2. Down the latest version of `LifeTracker` from [here](https://github.com/AY2223S2-CS2113-W15-1/tp).
+3. Copy the file to the folder you want ot use as the home folder for your LifeTracker.
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar tp.jar` command to run the application.
+5. Type the command in the command box and press Enter to execute it. 
+6. Refer to the features below for details of each command.
 
-## Features v1.0
+## Features
 
-{Give detailed description of each feature}
+* View and Update user profile
 * Add meal
-* View today's meal
 * Delete meal
+* Add Exercise
 * Calculate caloric needs
 * Calculate amount of calories left in the day
+* Find the nutrition of a certain kind of food
+* Filter foods based on calories
+* Track Calorie Intake
+
+### Viewing User Profile: `view`
+
+To view user's profile. 
+User can simply input a single line command to view the specific information in their user profile using the format
+below.
+
+Format: `view /[fieldName]`
+
+Here is a table of the information that the user can choose to view alongside the field name of it:
+
+| Information                  | /[fieldName]  |
+|------------------------------|---------------|
+| Name                         | /name         |
+| Weight                       | /weight       |
+| Height                       | /height       |
+| Age                          | /age          |
+| Gender                       | /gender       |
+| Daily caloric limit          | /caloricLimit | 
+| Calories remaining for today | /caloriesLeft |
+| Target weight                | /targetWeight | 
+
+Example:
+
+![view-example](./UG-images/view-example.PNG)
+
+
+### Updating User Profile: `update`
+
+Allows the user to update any of their information.
+User can simply input a single line command to update the specific information in their user profile using the format
+below.
+
+Format: `update /[fieldName] [newInfo]`
+
+Here is a table of the information that the user can choose to update alongside the field name of it:
+
+| Information   | /[fieldName]  |
+|---------------|---------------|
+| Name          | /name         |
+| Weight        | /weight       |
+| Height        | /height       |
+| Age           | /age          |
+| Gender        | /gender       |
+| Target weight | /targetWeight | 
+
+Example:
+
+![update-example](./UG-images/update-example.PNG)
 
 ### Adding a meal: `add`
-Adds a new item to the list of todo items.
 
-Format: `todo n/TODO_NAME d/DEADLINE`
+Adds a new meal to database
 
-* The `DEADLINE` can be in a natural language format.
-* The `TODO_NAME` cannot contain punctuation.  
+Format: `add /on [date] /type [MealType] /foods [foods]`
 
-Example of usage: 
-
-`todo n/Write the rest of the User Guide d/next week`
-
-`todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
-
-### Updating user's information: `update`
-Allows the user to update any of their information.
-User will come across a menu that shows them what information they can choose to update, they will need
-to input the number in order to update the specific information they want to change.
-
-Format: `update`
-
-* The `update` must be in lower case and cannot contain punctuations.
+* The `date` should be in `d/M/yyyy` format
+* The `MealType` can be one of the following
+  * Breakfast
+  * Lunch
+  * Dinner
+* The `foods` is a list of foods seperated by `, ` (Comma with a space after)
 
 Example of usage:
 
-`todo n/Write the rest of the User Guide d/next week`
+`add /on 3/3/2023 /type Lunch /foods Spaghetti, Alfredo (Small)`
 
-`todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
+![add-example](./UG-images/add-example.PNG)
 
-### Viewing user's information: `view`
-Allows the user to view any of their information as well as their calories.
-User will come across a menu that shows them what information they can choose to view, they will need
-to input the number in order to view the specific information they want to see.
+#### Alternatives
 
-Format: `view`
-* The `view` must be in lower case and cannot contain punctuations.
+For users who are not experienced with typing fast on keyboards, *LifeTracker* offers a menu option to add meal
 
-Example of menu:
+Format: `add`
 
-    ------------------------------------------------------------
-    View user settings
-    1. View Name
-    2. View Weight
-    3. View Height
-    4. View Age      
-    5. View Gender
-    6. View Daily Caloric limit
-    7. View Calories left today
+![add-alt-example](./UG-images/add-example2.PNG)
 
+### Listing foods: `list`
 
+For users to view all foods currently supported in the *LifeTracker* database
 
-### Exiting the program: `bye`
-Allows user to exit program.
+Format: `list foods`
+
+Example:
+![list-foods-example](./UG-images/list-foods-example.PNG)
+
+### Listing meals: `list`
+
+For users to view previously added meals
+
+Format: `list meals`
+
+Example:
+![list-meals-example](./UG-images/list-meals-example.PNG)
+
+### Listing exercises: `list`
+
+For users to view previously added exercises
+
+Format `list exercises`
+
+Example:
+![list-exercises-example](./UG-images/list-exercises-example.PNG)
+
+### Deleting meals: `delete`
+
+For users to remove previously added meals and exercises
+
+Format: `delete [/meal, /exercise] [index]`
+
+* The `index` should be a positive integer and must be less than number of meals/exercises added
+* It is recommended to run `list meals/exercises` beforehand to get the index of the meal/exercise you want to delete
+
+Example:
+![delete-example](./UG-images/delete-example.PNG)
+
+### Filtering foods: `filter`
+
+For users to filter the foods by their calorie content. The user inputs the lower and higher bound that they want to filter the food by,
+in terms of the calorie content of the food.
+
+The list of food within the range will then be displayed, from which the user can choose from.
+
+Format: `filter [lower_bound] [upper_bound]`
+
+* The lower and upper bound should be a `float` value
+* The lower bound should be lower than or equal to the upper bound
+
+Example:
+![filter-example](./UG-images/filter-example.PNG)
+
+### View nutrition content of food: `nutrition`
+
+For users to view the nutrition content of the food. The user first needs to search for the food, then the nutrition content of the food will be printed.
+
+Format: `nutrition`
+
+* The first food search should be in English
+* To select the particular food filtered, an integer should be inputted
+
+Example:
+![nutrition-example](./UG-images/nutrition-example.PNG)
+
+### Adding an exercise: `exercise`
+
+For user to input the exercise done previously
+
+Format: `exercise /type [exercise name] /description [exercise description] /calories [calories burnt] /on [date]`
+
+* The `exercise name` and `exercise description` accepts any input
+* The `calories` should be in `float` format
+* The `date` should be in `d/M/yyyy` format
+
+Example:
+![exercise-example](./UG-images/exercise-example.PNG)
+
+### Tracking net calorie intake: `track`
+
+For user to track their previous net calorie intake
+
+Format: `track /start [start date] /end [end date]`
+
+* `/start` and `/end` arguments are optional
+* The dates should be in `d/M/yyyy` format
+* If `/start` command is not provided, defaults to earliest date with meal/exercise added
+* If `/end` command is not provided, defaults to latest date with meal/exercise added
+
+Output:
+![track-example](./UG-images/track-example.PNG)
+
+### Displaying examples of meals and exercises: `examples`
+
+For the user to gain some inspiration on exercises to do, as well as some idea on the meals that they can eat.
+
+Format: `examples [meal/exercise]`
+
+Example:
+![examples-example](./UG-images/examples-example.PNG)
+
+### Exiting the application: `bye`
+Allows user to exit the appliction.
+
+Format: `bye`
+
+Output:
+![bye-example](./UG-images/bye-example.PNG)
 
 ## FAQ
 
 **Q**: How do I transfer my data to another computer? 
 
-**A**: {your answer here}
+**A**: Do copy the `data` folder and its contents to the new computer
+
+**Q**: Where do you get the data for the food from?
+
+**A**: The nutrition data is based on food from NUS TechnoEdge canteen, as this application would be mainly targeted at NUS Engineering students who eats there regularly. 
 
 ## Command Summary
 
-{Give a 'cheat sheet' of commands here}
+| Action    | Format, Examples                                                                                         |
+|-----------|----------------------------------------------------------------------------------------------------------|
+| View      | view /[fieldName]                                                                                        |
+| Update    | update /[fieldName]                                                                                      |
+| Add       | add /on [date] /type [MealType] /foods [foods]                                                           |
+| List      | list [foods/meals/exercises]                                                                             |
+| Delete    | delete INDEX e.g delete 3                                                                                |
+| Filter    | filter [lower_bound] [upper_bound]                                                                       |
+| Nutrition | nutrition                                                                                                |
+| Exercise  | exercise /type [exercise name] /description [exercise description] /calories [calories burnt] /on [date] |
+| Track     | track                                                                                                    |
+| Examples  | examples [meal/exercise]                                                                                 |
+| Help      | help
+| Bye       | bye                                                                                                      |
 
-* Add todo `todo n/TODO_NAME d/DEADLINE`
+

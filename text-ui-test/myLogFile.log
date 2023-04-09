@@ -1,0 +1,4 @@
+Apr 08, 2023 2:20:37 PM seedu.logger.LogFileHandler logWarning
+WARNING: Gender not provided, cannot calculate caloric needs accurately
+Apr 08, 2023 2:20:37 PM seedu.logger.LogFileHandler logInfo
+INFO: User exited the programme.
